@@ -680,8 +680,8 @@ if inputText_A == PASSWORD:
                     os.remove(docx_path)  # 一時ファイル削除
 
                     status_area.info(f"{file.name} の一時ファイルを削除中...")
-                    #delete_from_drive(pdf_id)
-                    #delete_from_drive(doc_id)
+                    delete_from_drive(pdf_id)
+                    delete_from_drive(doc_id)
 
                 status_area.success("ダウンロードできるエクセルを生成中。もう少ししたら、ダウンロードボタンが現れます。")
                 filename = save_to_excel(processed_data)
@@ -716,9 +716,9 @@ if inputText_A == PASSWORD:
         st.title("データ解析システム")
         st.write("特許要約システムで出力したエクセルファイルを用いて、データ分析・可視化を行います！")
 
-        st.image("./fig/データ分析システム1.jpg", use_container_width=True)
-        st.image("./fig/データ分析システム2.jpg", use_container_width=True)
-        st.image("./fig/データ分析システム3.jpg", use_container_width=True)
+        #st.image("./fig/データ分析システム1.jpg", use_container_width=True)
+        #st.image("./fig/データ分析システム2.jpg", use_container_width=True)
+        #st.image("./fig/データ分析システム3.jpg", use_container_width=True)
 
         
         def st_rag_langgraph():
