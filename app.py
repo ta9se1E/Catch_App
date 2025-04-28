@@ -68,8 +68,8 @@ load_dotenv(dotenv_path=".env.example")
 
 # JSON文字列を使う場合（注意：evalやjson.loadsが必要）
 
-SERVICE_ACCOUNT_INFO = json.loads(os.getenv("GOOGLE_DRIVE_CREDENTIAL_JSON"))
-VISION_ACCOUNT_INFO = json.loads(os.getenv("GOOGLE_APPLICATION_CREDENTIALS"))
+SERVICE_ACCOUNT_INFO = st.secrets["GOOGLE_DRIVE_CREDENTIAL_JSON"]
+VISION_ACCOUNT_INFO = st.secrets["GOOGLE_APPLICATION_CREDENTIALS"]
 
 # Google API認証（JSON文字列の場合）
 creds = service_account.Credentials.from_service_account_info(
