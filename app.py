@@ -715,7 +715,7 @@ if inputText_A == PASSWORD:
     elif mode == "データ解析システム":
         st.title("データ解析システム")
         st.write("特許要約システムで出力したエクセルファイルを用いて、データ分析・可視化を行います！")
-        st.image("./fig/データ分析システム1.jpg", use_container_width=True)
+        #st.image("./fig/データ分析システム1.jpg", use_container_width=True)
         st.image("./fig/データ分析システム2.jpg", use_container_width=True)
         st.image("./fig/データ分析システム3.jpg", use_container_width=True)
         
