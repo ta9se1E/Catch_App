@@ -89,8 +89,8 @@ PASSWORD = os.getenv("PASSWORD")
 PDF_input_folder = os.getenv("PDF_input_folder")
 DOCS_output_folder = os.getenv("DOCS_output_folder")
 GOOGLE_DRIVE_FOLDER_ID = os.getenv("GOOGLE_DRIVE_FOLDER_ID")
-USER_AGENT = os.getenv("USER_AGENT")
-os.environ['USER_AGENT'] = USER_AGENT
+#USER_AGENT = os.getenv("USER_AGENT")
+#os.environ['USER_AGENT'] = USER_AGENT
 
 # パスワード入力ボックス
 inputText_A = st.text_input('パスワードを入力してください', type="password")
