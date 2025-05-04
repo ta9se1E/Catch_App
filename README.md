@@ -96,4 +96,4 @@ Catch_App/
 ## ✨ 作者
 
 **Ta9se1E**（[note](https://note.com/ta9se1)｜[GitHub](https://github.com/ta9se1E)）  
-特許 × AI × アプリ開発に取り組むkk研究者・エンジニア。  
+特許 × AI × アプリ開発に取り組む研究者・エンジニア。  
