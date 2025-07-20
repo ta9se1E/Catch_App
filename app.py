@@ -258,6 +258,7 @@ if inputText_A == PASSWORD:
                 "技術開発課題分類": "解決しようとする技術課題を一言で表現（例：強度向上、剛性向上）。複数表記可。（強度向上;剛性向上）",
                 "解決手段の概要": "課題の解決に向けての手段を具体的に記述（文書に基づいて）。",
                 "解決手段分類": "解決手段を一言で表現してください（例：材料改良、形状改良、配置改良、表面加工）。複数表記可。（配置改良;表面加工）",
+                "請求項": "文章に基づいて、請求項を正確に抽出してください。複数ある場合は次のように通し番号をつけてください。（例：【請求項1】○○;【請求項2】○○;【請求項3】○○）",
                 "国際特許分類": "国際特許分類（例：F17C 1/06 ）があれば正確に、全て記載お願いします。複数表記可。（F16J 12/00;F17C 13/00）なければ空文字。国際特許分類は数字(△)とアルファベット(○))で構成。(○△△○ △△/△△ )。記載のルールとしては全て半角に変換して記載ください。",
                 "先行技術文献"："先行技術文献の識別コードを記載してください。具体的には特許の公開番号(例：特開２０２１－１５６３１２号)などを記述してください。なければ空文字。複数表記可。（特開２０２１－１５６３１２号;特開２０２１－１１３５６０号）。"
                 "Fターム": "Fタームがあれば正確に、なければ空文字",
@@ -292,6 +293,7 @@ if inputText_A == PASSWORD:
                 "技术开发课题分类": "将要解决的技术课题用一个词表达（例如：强度提升、刚性提升），可填写多个。（强度提升;刚性提升）",
                 "解决手段概要": "请具体描述为了解决课题所采取的手段（基于文章内容）。",
                 "解决手段分类": "请用一个词表达解决手段（例如：材料改良、形状改良、布局改良、表面处理），可填写多个。（布局改良;表面处理）",
+                "权利要求": "根据文本准确提取权利要求。如有多项权利要求，请按如下方式连续编号（例如：[权利要求 1] XX；[权利要求 2] XX；[权利要求 3] XX）",
                 "国际专利分类": "如有国际专利分类（例如：F17C 1/06），请准确完整填写。可填写多个（F16J 12/00;F17C 13/00）。如无则为空。请转换为半角字符后填写。",
                 "现有技术文献": "请填写先行技术文献的识别编号，如专利公开编号（例如：特开2021-156312号）。如无则为空。可填写多个。（特开2021-156312号;特开2021-113560号）",
                 "F项分类": "如有F项分类，请准确填写。如无则为空。"
@@ -322,6 +324,7 @@ if inputText_A == PASSWORD:
                 "기술 개발 과제 분류": "해결하려는 기술 과제를 한 단어로 표현해주세요 (예: 강도 향상;강성 향상). 복수 표기 가능.",
                 "해결 수단 개요": "문서를 기반으로 문제 해결 수단을 구체적으로 작성해주세요.",
                 "해결 수단 분류": "해결 수단을 한 단어로 표현해주세요 (예: 재료 개선, 형상 개선, 배치 개선, 표면 가공). 복수 표기 가능.",
+                "청구항": "문장에 따라 청구항을 정확하게 추출해 주십시오. 복수가 있는 경우는 다음과 같이 일련번호를 붙여 주십시오. (예: 청구항1) ○○;",
                 "국제 특허 분류": "국제 특허 분류(예: F17C 1/06)가 있으면 정확하게 모두 기재해주세요. 복수 표기 가능. 없으면 공백. 전부 반각 문자로 기입해주세요.",
                 "선행 기술 문헌": "선행 기술 문헌의 식별 코드(예: 공개특허번호 등)를 기재해주세요. 없으면 공백. 복수 표기 가능.",
                 "F-terms": "F-terms가 있으면 정확히, 없으면 공백."
@@ -352,6 +355,7 @@ if inputText_A == PASSWORD:
                 "Technical Issue Classification": "Summarize the technical issue to be solved in one word (e.g., Strength Enhancement;Rigidity Enhancement). Multiple entries allowed.",
                 "Summary of Solution": "Describe in detail the means taken to solve the problem (based on the document).",
                 "Solution Classification": "Express the type of solution in one word (e.g., Material Improvement, Shape Optimization, Layout Modification, Surface Treatment). Multiple entries allowed.",
+                "Claim": "Accurately extract the claims based on the text. If there are multiple claims, please number them consecutively as follows (e.g. [Claim 1] XX; [Claim 2] XX; [Claim 3] XX)",
                 "International Patent Classification": "If available, write all International Patent Classifications accurately (e.g., F17C 1/06). Use half-width characters. Leave blank if not applicable.",
                 "Prior Art Documents": "Include identifiers for prior art (e.g., publication numbers such as JP2021-156312). Leave blank if not applicable. Multiple entries allowed.",
                 "F-Term": "State F-terms if available. If not, leave blank."
@@ -362,7 +366,7 @@ if inputText_A == PASSWORD:
             """)
 
             補完プロンプト = ChatPromptTemplate.from_template("""
-            以下の特許全文の内、【発明の詳細な説明】、【課題】、【発明の効果】、【発明を実施するための形態】、【実施例】、【先行技術文献】をもとに、"{field}" の値を正確に日本語または数字・アルファベットで出力してください。
+            以下の特許全文の内、【発明の詳細な説明】、【課題】、【発明の効果】、【発明を実施するための形態】、【実施例】、【先行技術文献】、【特許請求の範囲】をもとに、"{field}" の値を正確に日本語または数字・アルファベットで出力してください。
             ⚠️ 解説やコメントは不要です。該当する内容がない場合は空文字（""）を返してください。
 
             ## 特許全文:
@@ -400,6 +404,7 @@ if inputText_A == PASSWORD:
                         "技术开发课题分类": "技術開発課題分類",
                         "解决手段概要": "解決手段の概要",
                         "解决手段分类": "解決手段分類",
+                        "权利要求":"請求項",#請求項追加
                         "国际专利分类": "国際特許分類",
                         "先行技术文献": "先行技術文献",
                         "F项分类": "Fターム",
@@ -418,6 +423,7 @@ if inputText_A == PASSWORD:
                         "기술 개발 과제 분류": "技術開発課題分類",
                         "해결 수단 개요": "解決手段の概要",
                         "해결 수단 분류": "解決手段分類",
+                        "청구항":"請求項",#請求項追加
                         "국제 특허 분류": "国際特許分類",
                         "선행 기술 문헌": "先行技術文献",
                         "F-terms": "Fターム",
@@ -436,6 +442,7 @@ if inputText_A == PASSWORD:
                         "Technical Issue Classification": "技術開発課題分類",
                         "Summary of Solution": "解決手段の概要",
                         "Solution Classification": "解決手段分類",
+                        "Claim":"請求項",#請求項追加
                         "International Patent Classification": "国際特許分類",
                         "Prior Art Documents": "先行技術文献",
                         "F-Term": "Fターム",
@@ -543,9 +550,9 @@ if inputText_A == PASSWORD:
                 base_fields = [
                     "発明の名称", "出願人", "発明者", "公開番号", "公開日",
                     "要約", "対象物", "対象物の最終用途", "請求項の対象",
-                    "技術開発の背景・課題", "技術開発課題分類", "解決手段の概要", "解決手段分類",
-                    "国際特許分類", "先行技術文献"
-                ]
+                    "技術開発の背景・課題", "技術開発課題分類", "解決手段の概要", "解決手段分類","請求項",
+                    "国際特許分類", "先行技術文献",
+                ]#請求項追加
                 if lang_code == "ja":
                     base_fields.append("Fターム")
                 return base_fields
@@ -627,8 +634,8 @@ if inputText_A == PASSWORD:
             # ✅ 翻訳対象フィールド
             fields_to_translate = [
                 "発明の名称", "要約", "対象物", "対象物の最終用途", "請求項の対象",
-                "技術開発の背景・課題", "技術開発課題分類", "解決手段の概要", "解決手段分類"
-            ]
+                "技術開発の背景・課題", "技術開発課題分類", "解決手段の概要", "解決手段分類","請求項"
+            ]#請求項追加
 
             translated_data = []
             for record in data_list:
