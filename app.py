@@ -203,7 +203,7 @@ if inputText_A == PASSWORD:
 
             return "\n".join(image_texts)
         
-        translate_llm = ChatOpenAI(model="gpt-4.1", temperature=0)
+        translate_llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
         def translate_to_japanese(text):
             if not text.strip():
                 return text  # 空ならそのまま
@@ -234,7 +234,7 @@ if inputText_A == PASSWORD:
             
 
             # === LLM設定 ===
-            llm = llm_model or ChatOpenAI(model="gpt-4.1", temperature=0, request_timeout=30)
+            llm = llm_model or ChatOpenAI(model="gpt-4o-mini", temperature=0, request_timeout=30)
 
             # === プロンプト設定 ===
             japanese_prompt = ChatPromptTemplate.from_template("""
